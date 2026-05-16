@@ -37,8 +37,7 @@ export default function RootLayout({
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
+          forcedTheme="dark"
         >
           <Navbar />
           <main className="pt-20">
