@@ -41,9 +41,14 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-6 md:px-10">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <Link href="/">
-            <span className="text-xl md:text-2xl font-bold text-white tracking-tight">WealthMind</span>
-            <span className="text-xl md:text-2xl font-bold text-[#D4AF6A] tracking-tight">Finserve</span>
+          <Link href="/" className="flex items-center gap-2.5 group">
+            <div className="w-9 h-9 rounded-lg bg-[#111827] border border-[#1F2937] flex items-center justify-center shadow-sm group-hover:border-[#D4AF6A]/50 transition-colors">
+              <span className="font-serif font-bold text-xl text-[#D4AF6A] leading-none select-none">W</span>
+            </div>
+            <div className="flex items-center">
+              <span className="text-xl md:text-2xl font-bold text-white tracking-tight">WealthMind</span>
+              <span className="text-xl md:text-2xl font-bold text-[#D4AF6A] tracking-tight">Finserve</span>
+            </div>
           </Link>
 
           {/* Desktop Nav */}

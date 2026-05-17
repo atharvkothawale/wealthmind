@@ -19,6 +19,11 @@ export const metadata: Metadata = {
   title: "WealthMind Finserve | Mutual Fund Distributor",
   description: "NISM Certified Mutual Fund Distributor. Start your SIP journey with expert guidance. Serving investors across Maharashtra and India.",
   keywords: "mutual fund distributor, SIP, investment advisor, NISM certified, Maharashtra, ARN holder",
+  icons: {
+    icon: '/favicon.svg',
+    shortcut: '/favicon.svg',
+    apple: '/favicon.svg',
+  },
   openGraph: {
     title: "WealthMind Finserve | Mutual Fund Distributor",
     description: "Start your SIP journey with expert guidance.",
