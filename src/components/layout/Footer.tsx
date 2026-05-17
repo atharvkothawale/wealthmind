@@ -47,9 +47,9 @@ const Footer = () => {
             <h4 className="text-white font-bold text-lg mb-6">Legal</h4>
             <ul className="flex flex-col gap-4">
               {[
-                { name: 'Privacy Policy', href: '/contact' },
-                { name: 'Terms of Service', href: '/contact' },
-                { name: 'Disclosures', href: '/contact' },
+                { name: 'Privacy Policy', href: '/privacy-policy' },
+                { name: 'Terms of Service', href: '/disclaimer' },
+                { name: 'Disclosures', href: '/disclosures' },
                 { name: 'SEBI Guidelines', href: 'https://www.sebi.gov.in', external: true }
               ].map((link) => (
                 <li key={link.name}>
@@ -84,7 +84,7 @@ const Footer = () => {
                 <span className="break-all">contact@wealthmindfinserve.com</span>
               </li>
               <li className="pt-2">
-                <button 
+                <button
                   style={{
                     backgroundColor: '#25D366',
                     color: '#fff',
