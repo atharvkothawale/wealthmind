@@ -20,7 +20,9 @@ export const metadata: Metadata = {
   description: "NISM Certified Mutual Fund Distributor. Start your SIP journey with expert guidance. Serving investors across Maharashtra and India.",
   keywords: "mutual fund distributor, SIP, investment advisor, NISM certified, Maharashtra, ARN holder",
   icons: {
-    icon: '/favicon.svg',
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+    ],
     shortcut: '/favicon.svg',
     apple: '/favicon.svg',
   },
@@ -38,6 +40,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning style={{ overflowX: 'hidden' }}>
+      <head>
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`} style={{ overflowX: 'hidden' }}>
         <ThemeProvider
           attribute="class"
