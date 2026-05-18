@@ -8,11 +8,6 @@ export async function POST(request: Request) {
     const body = await request.json()
     const { name, phone, email, city, investment_goal, message } = body
 
-    if (!process.env.ADMIN_EMAIL) {
-      console.error("ADMIN_EMAIL environment variable is not defined.")
-      return NextResponse.json({ success: false, error: 'Admin email not configured' }, { status: 500 })
-    }
-
     if (!process.env.RESEND_API_KEY) {
       console.error("RESEND_API_KEY environment variable is not defined.")
       return NextResponse.json({ success: false, error: 'Resend API key not configured' }, { status: 500 })
@@ -20,7 +15,7 @@ export async function POST(request: Request) {
 
     await resend.emails.send({
       from: 'onboarding@resend.dev',
-      to: process.env.ADMIN_EMAIL,
+      to: 'atharvkothawale07@gmail.com',
       subject: `New Lead: ${name} from ${city}`,
       html: `
         <h2>New Lead from WealthMind Finserve</h2>
