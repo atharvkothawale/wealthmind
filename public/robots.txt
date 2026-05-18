@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /admin/
 Disallow: /wm-portal/
 Sitemap: https://wealthmind-lake.vercel.app/sitemap.xml
