@@ -50,6 +50,16 @@ export default function ContactPage() {
       if (submitError) {
         setError(submitError.message || 'Failed to submit the form.');
       } else {
+        try {
+          await fetch('/api/notify', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, phone: phoneClean, email, city, investment_goal, message })
+          });
+        } catch (notifyErr) {
+          console.error('Failed to send email notification:', notifyErr);
+        }
+
         setIsSuccess(true);
         setName('');
         setPhone('');
