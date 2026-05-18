@@ -1,7 +1,11 @@
-"use client";
-
+import type { Metadata } from 'next';
 import React from 'react';
 import { User, Eye, Heart, TrendingUp } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: "About Us | WealthMind Finserve",
+  description: "Meet your NISM certified Mutual Fund Distributor with 15+ years experience serving investors across Maharashtra and India.",
+};
 
 export default function AboutPage() {
   const timeline = [
@@ -94,7 +98,7 @@ export default function AboutPage() {
       <section className="py-24 pb-32">
         <div className="max-w-6xl mx-auto px-6 md:px-10">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-white">Our Core Values</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-white">My Core Values</h2>
             <div style={{ width: '60px', height: '3px', backgroundColor: '#D4AF6A', margin: '16px auto 0' }}></div>
           </div>
 

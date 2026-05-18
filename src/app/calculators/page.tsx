@@ -1,5 +1,11 @@
+import type { Metadata } from 'next';
 import React from 'react';
 import SipCalculator from '@/components/calculator/SipCalculator';
+
+export const metadata: Metadata = {
+  title: "Investment Calculators | WealthMind Finserve",
+  description: "Free SIP, Lumpsum, and SWP calculators to plan your financial future with precision.",
+};
 
 export default function CalculatorsPage() {
   return (

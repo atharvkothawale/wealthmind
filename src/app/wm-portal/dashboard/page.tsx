@@ -42,7 +42,7 @@ export default function AdminDashboardPage() {
       const { data: { session } } = await supabase.auth.getSession();
       if (!session) {
         document.cookie = `wealthmind_admin_token=; path=/; max-age=0; SameSite=Lax; Secure`;
-        router.push('/admin/login');
+        router.push('/wm-portal/login');
       } else {
         document.cookie = `wealthmind_admin_token=${session.access_token}; path=/; max-age=604800; SameSite=Lax; Secure`;
         setSession(session);
@@ -56,7 +56,7 @@ export default function AdminDashboardPage() {
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
       if (!session) {
         document.cookie = `wealthmind_admin_token=; path=/; max-age=0; SameSite=Lax; Secure`;
-        router.push('/admin/login');
+        router.push('/wm-portal/login');
       } else {
         document.cookie = `wealthmind_admin_token=${session.access_token}; path=/; max-age=604800; SameSite=Lax; Secure`;
         setSession(session);
@@ -94,7 +94,7 @@ export default function AdminDashboardPage() {
     try {
       await supabase.auth.signOut();
       document.cookie = `wealthmind_admin_token=; path=/; max-age=0; SameSite=Lax; Secure`;
-      router.push('/admin/login');
+      router.push('/wm-portal/login');
     } catch (err) {
       console.error('Logout error:', err);
     }

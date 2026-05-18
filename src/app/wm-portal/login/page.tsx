@@ -30,7 +30,7 @@ export default function AdminLoginPage() {
       } else if (data?.session) {
         // Set cookie for middleware route protection
         document.cookie = `wealthmind_admin_token=${data.session.access_token}; path=/; max-age=604800; SameSite=Lax; Secure`;
-        router.push('/admin/dashboard');
+        router.push('/wm-portal/dashboard');
         router.refresh();
       } else {
         setError('An unexpected error occurred during sign in.');

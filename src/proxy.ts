@@ -5,17 +5,17 @@ export default async function proxy(request: NextRequest) {
   const token = request.cookies.get('wealthmind_admin_token')?.value
 
   // Protect the dashboard path
-  if (request.nextUrl.pathname.startsWith('/admin/dashboard')) {
+  if (request.nextUrl.pathname.startsWith('/wm-portal/dashboard')) {
     if (!token) {
-      const loginUrl = new URL('/admin/login', request.url)
+      const loginUrl = new URL('/wm-portal/login', request.url)
       return NextResponse.redirect(loginUrl)
     }
   }
 
   // Redirect from login if already authenticated
-  if (request.nextUrl.pathname.startsWith('/admin/login')) {
+  if (request.nextUrl.pathname.startsWith('/wm-portal/login')) {
     if (token) {
-      const dashboardUrl = new URL('/admin/dashboard', request.url)
+      const dashboardUrl = new URL('/wm-portal/dashboard', request.url)
       return NextResponse.redirect(dashboardUrl)
     }
   }
@@ -24,5 +24,5 @@ export default async function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/admin/dashboard/:path*', '/admin/login'],
+  matcher: ['/wm-portal/dashboard/:path*', '/wm-portal/login'],
 }

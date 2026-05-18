@@ -1,8 +1,12 @@
-"use client";
-
+import type { Metadata } from 'next';
 import React from 'react';
 import { TrendingUp, Target, BarChart2, Shield, CheckCircle2, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: "Our Services | WealthMind Finserve",
+  description: "Mutual Fund Investment, Goal-Based Planning, Portfolio Review and Tax-Saving ELSS solutions tailored to your goals.",
+};
 
 export default function ServicesPage() {
   const services = [

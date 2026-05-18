@@ -109,7 +109,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-6" style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }}>
           <p className="text-[#9CA3AF] text-sm font-light">
-            &copy; {new Date().getFullYear()} WealthMind Finserve. All rights reserved. | Developed & Maintained by Atharv K
+            © {new Date().getFullYear()} WealthMind Finserve. All rights reserved.| Developed & Maintained by Atharv K
           </p>
           <p className="text-[#9CA3AF] text-[10px] md:text-[11px] leading-relaxed max-w-md text-center md:text-right italic opacity-60">
             Mutual Fund investments are subject to market risks. Please read all scheme related documents carefully.
