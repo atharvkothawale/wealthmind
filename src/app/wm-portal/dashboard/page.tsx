@@ -27,7 +27,7 @@ export default function AdminDashboardPage() {
   
   // Auth state
   const [session, setSession] = useState<any>(null);
-  const [loadingSession, setLoadingSession] = useState(true);
+  const [isChecking, setIsChecking] = useState(true);
 
   // Leads and filter/search states
   const [leads, setLeads] = useState<any[]>([]);
@@ -42,24 +42,26 @@ export default function AdminDashboardPage() {
       const { data: { session } } = await supabase.auth.getSession();
       if (!session) {
         document.cookie = `wealthmind_admin_token=; path=/; max-age=0; SameSite=Lax; Secure`;
-        router.push('/wm-portal/login');
+        router.replace('/wm-portal/login');
       } else {
         document.cookie = `wealthmind_admin_token=${session.access_token}; path=/; max-age=604800; SameSite=Lax; Secure`;
         setSession(session);
         fetchLeads();
+        setIsChecking(false);
       }
-      setLoadingSession(false);
     };
 
     checkUser();
 
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
       if (!session) {
+        setIsChecking(true);
         document.cookie = `wealthmind_admin_token=; path=/; max-age=0; SameSite=Lax; Secure`;
-        router.push('/wm-portal/login');
+        router.replace('/wm-portal/login');
       } else {
         document.cookie = `wealthmind_admin_token=${session.access_token}; path=/; max-age=604800; SameSite=Lax; Secure`;
         setSession(session);
+        setIsChecking(false);
       }
     });
 
@@ -92,6 +94,7 @@ export default function AdminDashboardPage() {
   // Sign out handler
   const handleLogout = async () => {
     try {
+      setIsChecking(true);
       await supabase.auth.signOut();
       document.cookie = `wealthmind_admin_token=; path=/; max-age=0; SameSite=Lax; Secure`;
       router.push('/wm-portal/login');
@@ -162,13 +165,16 @@ export default function AdminDashboardPage() {
     return statusMatches && searchMatches;
   });
 
-  if (loadingSession || (!session && loadingSession)) {
+  if (isChecking) {
     return (
-      <div className="bg-[#0A0F1E] min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <Loader2 size={40} className="text-[#D4AF6A] animate-spin mx-auto mb-4" />
-          <p className="text-[#9CA3AF] text-sm tracking-wider">Verifying Admin Session...</p>
-        </div>
+      <div style={{ 
+        backgroundColor: '#0A0F1E', 
+        minHeight: '100vh', 
+        display: 'flex', 
+        alignItems: 'center', 
+        justifyContent: 'center' 
+      }}>
+        <div style={{ color: '#D4AF6A', fontSize: '18px' }}>Loading...</div>
       </div>
     );
   }
